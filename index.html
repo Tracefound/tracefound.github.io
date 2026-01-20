@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Tracefound.dev | DevRel | DevEx Consultancy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        /* Animation utilities */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:bg-orange-500/30 selection:text-orange-200 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <!-- Placeholder SVG Logo - Replace this block with <img src="logo.png"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="350 250 350 350" class="w-10 h-10">
+
+                    <defs>
+                        <linearGradient id="tracefoundGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ff4b7e"/>
+                        <stop offset="50%" stop-color="#ffae4b"/>
+                        <stop offset="100%" stop-color="#f0e64d"/>
+                        </linearGradient>
+                    </defs>
+
+                    <g transform="translate(362, 273)">
+                        <path d="M150,0 L280,75 L280,225 L150,300 L20,225 L20,75 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="8"/>
+                        
+                        <g transform="translate(135, 135)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+
+                        <g transform="translate(135, 20)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="150" y1="65" x2="150" y2="125" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <g transform="translate(230, 75)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="225" y1="120" x2="190" y2="145" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <g transform="translate(230, 185)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="225" y1="190" x2="190" y2="165" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <g transform="translate(135, 240)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="150" y1="235" x2="150" y2="185" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <g transform="translate(40, 185)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="75" y1="190" x2="110" y2="165" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <g transform="translate(40, 75)">
+                        <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6"/>
+                        </g>
+                        <line x1="75" y1="120" x2="110" y2="145" stroke="url(#tracefoundGradient)" stroke-width="6" stroke-linecap="round"/>
+
+                        <path d="M130,145 A20,20 0 0,1 110,175" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6" marker-end="url(#arrow)" transform="translate(0, -10)"/>
+                        <path d="M170,175 A20,20 0 0,1 190,145" fill="none" stroke="url(#tracefoundGradient)" stroke-width="6" marker-end="url(#arrow)" transform="translate(0, -10)"/>
+                    </g>
+                </svg>
+                <!-- End Logo -->
+                <span class="text-xl font-bold tracking-tight text-white">
+                    Tracefound<span class="text-orange-500">.dev</span>
+                </span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" data-en="Services" data-pt="Serviços" class="text-slate-400 hover:text-orange-500 text-sm font-medium transition-colors">Services</a>
+                <a href="#methodology" data-en="Methodology" data-pt="Metodologia" class="text-slate-400 hover:text-orange-500 text-sm font-medium transition-colors">Methodology</a>
+                <a href="#about" data-en="About" data-pt="Sobre" class="text-slate-400 hover:text-orange-500 text-sm font-medium transition-colors">About</a>
+                
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle" class="px-3 py-1 rounded-lg border border-slate-700 text-slate-400 hover:text-orange-500 hover:border-orange-500/30 text-sm font-medium transition-all" title="Toggle language">
+                    <span id="lang-text">PT</span>
+                </button>
+                
+                <a href="#contact" data-en="Contact Us" data-pt="Entre em Contato" class="px-4 py-2 rounded-lg border border-orange-500/30 text-orange-500 hover:bg-orange-950/30 text-sm font-medium transition-all">
+                    Contact Us
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 md:hidden shadow-2xl">
+            <div class="flex flex-col">
+                <a href="#services" data-en="Services" data-pt="Serviços" class="block w-full py-4 px-6 text-lg border-b border-slate-800 text-slate-300 hover:text-orange-500 hover:bg-slate-900 transition-colors">Services</a>
+                <a href="#methodology" data-en="Methodology" data-pt="Metodologia" class="block w-full py-4 px-6 text-lg border-b border-slate-800 text-slate-300 hover:text-orange-500 hover:bg-slate-900 transition-colors">Methodology</a>
+                <a href="#about" data-en="About" data-pt="Sobre" class="block w-full py-4 px-6 text-lg border-b border-slate-800 text-slate-300 hover:text-orange-500 hover:bg-slate-900 transition-colors">About</a>
+                <div class="p-6 flex items-center justify-between gap-4">
+                    <a href="#contact" data-en="Contact Us" data-pt="Entre em Contato" class="flex items-center justify-center flex-1 px-6 py-3 bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold rounded-lg transition-colors">
+                        Contact Us
+                    </a>
+                    <button id="lang-toggle-mobile" class="px-3 py-3 rounded-lg border border-slate-700 text-slate-300 hover:text-orange-500 hover:border-orange-500/30 font-medium transition-all" title="Toggle language">
+                        <span id="lang-text-mobile">PT</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+            <div class="absolute top-[20%] left-[20%] w-96 h-96 bg-orange-500/10 rounded-full blur-[100px]"></div>
+            <div class="absolute top-[30%] right-[20%] w-96 h-96 bg-purple-500/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="fade-in-up inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-orange-500 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                    <span data-en="Available for New Projects" data-pt="Disponível para Novos Projetos">Available for New Projects</span>
+                </div>
+                
+                <h1 class="fade-in-up delay-100 text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    <span data-en="Tracing the path to" data-pt="Traçando o caminho para">Tracing the path to</span> <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">
+                        <span data-en="Developer Relations' excellence." data-pt="excelência em Developer Relations.">Developer Relations' excellence.</span>
+                    </span>
+                </h1>
+                
+                <p class="fade-in-up delay-200 text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <span data-en="We provide elite DevRel consultancy for your business. From launching your public API to the developer's community to improving your internal developer's experience, we find the solutions others miss." data-pt="Fornecemos consultoria de elite em DevRel para seu negócio. Desde o lançamento de sua API pública para a comunidade de desenvolvedores até a melhoria da experiência interna de seus desenvolvedores, encontramos as soluções que outros perdem.">We provide elite DevRel consultancy for your business. From launching your public API to the developer's community to improving your internal developer's experience, we find the solutions others miss.</span>
+                </p>
+                
+                <div class="fade-in-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all duration-200">
+                        <span data-en="Contact Us" data-pt="Entre em Contato">Contact Us</span> <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                    <button class="hidden inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-transparent border border-slate-700 text-slate-300 hover:border-slate-500 hover:bg-slate-800 transition-all duration-200">
+                        <span data-en="View Case Studies" data-pt="Ver Estudos de Caso">View Case Studies</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-950 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4"><span data-en="Technical Expertise" data-pt="Expertise Técnica">Technical Expertise</span></h2>
+                <p class="text-slate-400 max-w-xl mx-auto">
+                    <span data-en="Our core competencies are built on years of Developer Relations and Engineering Program Management experience." data-pt="Nossas competências principais são construídas sobre anos de experiência em Developer Relations e Gerenciamento de Programas de Engenharia.">Our core competencies are built on years of Developer Relations and Engineering Program Management experience.</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="handshake" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Developer Relations" data-pt="Relações com Desenvolvedores">Developer Relations</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Build authentic bridges between your company and the developer ecosystem. We cultivate trust and advocacy, ensuring your product roadmap aligns with community needs to drive long-term adoption." data-pt="Construa pontes autênticas entre sua empresa e o ecossistema de desenvolvedores. Cultivamos confiança e defesa, garantindo que seu roteiro de produtos esteja alinhado com as necessidades da comunidade para impulsionar a adoção a longo prazo.">Build authentic bridges between your company and the developer ecosystem. We cultivate trust and advocacy, ensuring your 
+                            product roadmap aligns with community needs to drive long-term adoption.</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="thumbs-up" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Developer Experience" data-pt="Experiência do Desenvolvedor">Developer Experience</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Eliminate friction in the user journey. We optimize your onboarding, SDKs, and tooling to ensure developers achieve their \"Hello World\" moment instantly and effortlessly." data-pt="Elimine o atrito na jornada do usuário. Otimizamos sua integração, SDKs e ferramentas para garantir que os desenvolvedores alcancem seu momento 'Hello World' instantaneamente e sem esforço.">Eliminate friction in the user journey. We optimize your onboarding, SDKs, and tooling to ensure developers achieve 
+                            their "Hello World" moment instantly and effortlessly.</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="contact-round" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Community Management" data-pt="Gerenciamento de Comunidade">Community Management</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Nurture a thriving, self-sustaining ecosystem. We implement strategies to grow your user base, identify community champions, and foster a healthy, collaborative environment for peer-to-peer support." data-pt="Cultive um ecossistema próspero e autossustentável. Implementamos estratégias para expandir sua base de usuários, identificar campeões da comunidade e criar um ambiente saudável e colaborativo para suporte entre pares.">Nurture a thriving, self-sustaining ecosystem. We implement strategies to grow your user base, identify community 
+                            champions, and foster a healthy, collaborative environment for peer-to-peer support.</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="notebook-text" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Developer Learning" data-pt="Aprendizado do Desenvolvedor">Developer Learning</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Empower developers to master your platform. We design high-impact educational content, workshops, and curriculum paths that accelerate proficiency, reduce churn, and drive product stickiness." data-pt="Capacite os desenvolvedores a dominar sua plataforma. Projetamos conteúdo educacional de alto impacto, workshops e caminhos de currículo que aceleram a proficiência, reduzem a rotatividade e impulsionam a aderência ao produto.">Empower developers to master your platform. We design high-impact educational content, workshops, and curriculum paths that 
+                            accelerate proficiency, reduce churn, and drive product stickiness.</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="square-code" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Technical Documentation" data-pt="Documentação Técnica">Technical Documentation</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Transform complex code into clear, accessible knowledge. We structure and write documentation that reduces support tickets, enables self-service, and serves as your product's best marketing tool." data-pt="Transforme código complexo em conhecimento claro e acessível. Estruturamos e escrevemos documentação que reduz tickets de suporte, permite autoatendimento e serve como melhor ferramenta de marketing do seu produto.">Transform complex code into clear, accessible knowledge. We structure and write documentation that reduces support tickets, 
+                            enables self-service, and serves as your product's best marketing tool.</span></p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group relative p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="merge" class="w-6 h-6 text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-2"><span data-en="Technical Engagement Strategy" data-pt="Estratégia de Engajamento Técnico">Technical Engagement Strategy</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-sm"><span data-en="Align developer activities with business goals. We craft data-driven roadmaps for hackathons, events, and content that generate measurable impact and sustainable growth for your organization." data-pt="Alinhe as atividades dos desenvolvedores com os objetivos de negócios. Criamos roteiros orientados por dados para hackathons, eventos e conteúdo que geram impacto mensurável e crescimento sustentável para sua organização.">Align developer activities with business goals. We craft data-driven roadmaps for hackathons, events, and content 
+                            that generate measurable impact and sustainable growth for your organization.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="py-24 border-t border-slate-900 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        <span data-en="The Tracefound Standard" data-pt="O Padrão Tracefound">The Tracefound Standard</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        <span data-en="We don't just engage with developers; we create real word bonds. Our approach is rooted in transparency, user first interactions, and a relentless pursuit of real and meaningful technical connections." data-pt="Não apenas nos envolvemos com desenvolvedores; criamos laços reais. Nossa abordagem é baseada em transparência, interações voltadas para o usuário e uma busca incansável por conexões técnicas reais e significativas.">We don't just engage with developers; we create real word bonds. Our approach is rooted in 
+                        transparency, user first interactions, and a relentless pursuit of real and meaningful technical connections.</span>
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+                            <span class="text-slate-300"><span data-en="Data-driven decision making" data-pt="Tomada de decisão orientada por dados">Data-driven decision making</span></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+                            <span class="text-slate-300"><span data-en="Transparent communication channels" data-pt="Canais de comunicação transparentes">Transparent communication channels</span></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+                            <span class="text-slate-300"><span data-en="Solutions tailored to your developers and business needs" data-pt="Soluções adaptadas às necessidades de seus desenvolvedores e negócios">Solutions tailored to your developers and business needs</span></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+                            <span class="text-slate-300"><span data-en="Users-first mindset" data-pt="Mentalidade centrada no usuário">Users-first mindset</span></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="#about" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-transparent border border-orange-500/30 text-orange-500 hover:bg-orange-950/30 transition-all duration-200">
+                            <span data-en="Learn more about us" data-pt="Saiba mais sobre nós">Learn more about us</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 w-full">
+                    <!-- Logo Image -->
+                    <div class="relative rounded-2xl bg-slate-950 border border-slate-800 p-8 flex items-center justify-center overflow-hidden">
+                        <img src="tracefound_full.jpg" alt="Tracefound Logo" class="w-full h-auto object-contain rounded-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-r from-slate-900 to-slate-900 border border-slate-800 rounded-3xl p-10 md:p-16 text-center shadow-2xl">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                    <span data-en="Ready to elevate your stack?" data-pt="Pronto para engajar de verdade?">Ready to elevate your stack?</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
+                    <span data-en="Let's discuss how Tracefound can help you build better, more engange, and stronger connections with your external and internal developer communities." data-pt="Vamos discutir como a Tracefound pode ajudá-lo a construir conexões melhores, mais engajadas e mais fortes com suas comunidades de desenvolvedores internas e externas.">Let's discuss how Tracefound can help you build better, more engange, and stronger connections with your external and internal developer communities.</span>
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button class="hidden inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all duration-200">
+                        <i data-lucide="message-square" class="w-4 h-4 mr-2"></i>
+                        <span data-en="Book a Consultation" data-pt="Agendar uma Consultoria">Book a Consultation</span>
+                    </button>
+                    <a href="mailto:contact@tracefound.dev" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all duration-200">
+                        <span data-en="Email Us" data-pt="Envie-nos um E-mail">Email Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-sm text-slate-500">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="350 250 350 350" class="w-6 h-6">
+                        <defs>
+                            <linearGradient id="tracefoundGradientFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#ff4b7e"/>
+                            <stop offset="50%" stop-color="#ffae4b"/>
+                            <stop offset="100%" stop-color="#f0e64d"/>
+                            </linearGradient>
+                        </defs>
+
+                        <g transform="translate(362, 273)">
+                            <path d="M150,0 L280,75 L280,225 L150,300 L20,225 L20,75 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="8"/>
+                            
+                            <g transform="translate(135, 135)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+
+                            <g transform="translate(135, 20)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="150" y1="65" x2="150" y2="125" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <g transform="translate(230, 75)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="225" y1="120" x2="190" y2="145" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <g transform="translate(230, 185)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="225" y1="190" x2="190" y2="165" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <g transform="translate(135, 240)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="150" y1="235" x2="150" y2="185" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <g transform="translate(40, 185)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="75" y1="190" x2="110" y2="165" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <g transform="translate(40, 75)">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            <path d="M0,45 C0,30 10,25 15,25 C20,25 30,30 30,45 L0,45 Z" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6"/>
+                            </g>
+                            <line x1="75" y1="120" x2="110" y2="145" stroke="url(#tracefoundGradientFooter)" stroke-width="6" stroke-linecap="round"/>
+
+                            <path d="M130,145 A20,20 0 0,1 110,175" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6" marker-end="url(#arrow)" transform="translate(0, -10)"/>
+                            <path d="M170,175 A20,20 0 0,1 190,145" fill="none" stroke="url(#tracefoundGradientFooter)" stroke-width="6" marker-end="url(#arrow)" transform="translate(0, -10)"/>
+                        </g>
+                    </svg>
+                    <span class="font-semibold text-slate-300">Tracefound.dev</span>
+                </div>
+                <div class="hidden gap-8">
+                    <a href="/privacy" class="hover:text-orange-500 transition-colors">Privacy</a>
+                    <a href="/terms" class="hover:text-orange-500 transition-colors">Terms</a>
+                    <a href="https://twitter.com" target="_blank" class="hover:text-orange-500 transition-colors">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-orange-500 transition-colors">LinkedIn</a>
+                </div>
+                <div>
+                    &copy; <span id="year"></span> <span data-en="Tracefound Developer Relations." data-pt="Tracefound Developer Relations.">Tracefound Developer Relations.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Language System
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update page title
+            const titleMap = {
+                en: 'Tracefound.dev | DevRel | DevEx Consultancy',
+                pt: 'Tracefound.dev | DevRel | Consultoria DevEx'
+            };
+            document.getElementById('page-title').textContent = titleMap[lang];
+            document.getElementById('root-html').lang = lang;
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+
+            // Update language button text
+            const langText = lang === 'en' ? 'PT' : 'EN';
+            const langTextEl = document.getElementById('lang-text');
+            const langTextMobileEl = document.getElementById('lang-text-mobile');
+            if (langTextEl) langTextEl.textContent = langText;
+            if (langTextMobileEl) langTextMobileEl.textContent = langText;
+
+            // Reinitialize icons in case they were updated
+            lucide.createIcons();
+        }
+
+        // Initialize language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLanguage);
+        });
+
+        // Language toggle button click handlers
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const langToggleMobileBtn = document.getElementById('lang-toggle-mobile');
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', () => {
+                const newLang = currentLanguage === 'en' ? 'pt' : 'en';
+                setLanguage(newLang);
+            });
+        }
+
+        if (langToggleMobileBtn) {
+            langToggleMobileBtn.addEventListener('click', () => {
+                const newLang = currentLanguage === 'en' ? 'pt' : 'en';
+                setLanguage(newLang);
+            });
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-slate-950/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-slate-950/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                // Change icon to X
+                mobileBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Change icon back to Menu
+                mobileBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
